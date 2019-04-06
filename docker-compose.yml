@@ -9,6 +9,7 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
+      - esdata1:/usr/share/elasticsearch/data
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
       - "9200:9200"
@@ -56,3 +57,7 @@ services:
 networks:
    elk:
      external: true
+
+volumes:
+  esdata1:
+    driver: local
