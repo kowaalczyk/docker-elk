@@ -16,6 +16,9 @@ services:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - elk
+      - default
+    expose:
+      - "9200"
 
   logstash:
     build:
@@ -50,6 +53,5 @@ services:
       - elasticsearch
 
 networks:
-
-  elk:
-    driver: bridge
+   elk:
+     external: true
