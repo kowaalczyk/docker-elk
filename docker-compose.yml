@@ -3,6 +3,7 @@ version: '2'
 services:
 
   elasticsearch:
+    container_name: elastic
     build:
       context: elasticsearch/
       args:
